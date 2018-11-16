@@ -3,7 +3,7 @@ import time
 import os
 import logging
 
-DEFAULT_INTERVAL = 60
+DEFAULT_INTERVAL = 300
 
 def save(obj, path):
     with open(path, "wb") as f:
