@@ -3,7 +3,7 @@ from single_requests import get_player_info
 from serialization import interval_dumper
 import logging
 
-INTERVAL = 10
+INTERVAL = 20
 
 def main_loop():
     dumper = interval_dumper()
@@ -16,7 +16,7 @@ def main_loop():
             logging.warn("获取失败")
             continue
         if ret:
-            ret.popitem("updates")
+            ret.pop("updates")
             logging.info("成功获取玩家信息: 长度[{}], 在线人数：[{}]".format(
                 len(str(ret)), ret['currentcount'])
             )
