@@ -10,8 +10,13 @@ def main_loop():
     logging.info("玩家信息获取系统 Alpha v0.0.2")
     logging.info("author: liubai01")
     while True:
-        ret = get_player_info()
+        try:
+            ret = get_player_info()
+        except Exception:
+            logging.warn("获取失败")
+            continue
         if ret:
+            ret.popitem("updates")
             logging.info("成功获取玩家信息: 长度[{}], 在线人数：[{}]".format(
                 len(str(ret)), ret['currentcount'])
             )
